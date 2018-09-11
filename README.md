@@ -1,9 +1,21 @@
 # AdQuick Challenge
 
-# Setup
+## Setup the App
 
-1. Create config/database.yml (see database.example.yml)
-2. bundle install
-3. rake db:create
-4. rake db:migrate
-5. rails s
+Create a copy of config/database.yml and fill in username and database.
+  `cp config/database.example.yml config/database.yml`
+
+Install gems/packages
+  `bundle install`
+
+Create database
+  `rake db:create`
+
+Run migrations
+  `rake db:migrate`
+
+## Starting the App
+
+Run the server
+  `rails s`
+
