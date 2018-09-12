@@ -1,5 +1,16 @@
-= billboard.score
-= billboard.name
-br
-= image_tag(billboard.image_url, alt: billboard.name, :size => '260x180')
-br
+.billboard-container data-billboard-id="#{billboard.id}"
+  = billboard.score
+  = billboard.name
+
+  br
+  br
+
+  = link_to 'UP', '#', class: 'vote-up'
+  br
+  = link_to 'DOWN', '#', class: 'vote-down'
+
+  br
+  br
+  = image_tag(billboard.image_url, alt: billboard.name, :size => '260x180')
+  br
+

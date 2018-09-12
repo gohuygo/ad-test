@@ -3,3 +3,20 @@ h2 Billboards#Index
 - @billboards.each do |billboard|
   = render partial: 'edit', locals: { billboard: billboard }
 
+javascript:
+  $('.vote-up').click(function (event) {
+    console.log('UPVOTED')
+    let billboardId = $(event.target.parentElement).data('billboard-id')
+
+    $.ajax({
+        url: "/billboards/" + billboardId,
+        type: "PUT",
+        success: function (data) {
+          console.log("SUCCESS!")
+            // // append data to your page
+            // $("page_element").html(data);
+        }
+    });
+
+    event.preventDefault(); // Prevent link from following its href
+  });
