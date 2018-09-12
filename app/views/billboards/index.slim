@@ -12,7 +12,7 @@ javascript:
       data: {"direction": direction},
       success: function (data) {
         console.log("SUCCESS!")
-
+        $(".notice").html('<p>Your vote has been successfully casted.</p>')
         // TODO: After voting, the user should see a success message.
       }
     });

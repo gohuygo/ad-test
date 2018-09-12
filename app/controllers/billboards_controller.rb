@@ -17,8 +17,7 @@ class BillboardsController < ApplicationController
       current_user.votes.create(billboard_id: billboard_id, direction: direction)
     end
 
-    new_score = Billboard.find_by_id(billboard_id).score
-
-    render :json => {billboard_id: billboard_id, score: new_score}
+    billboard = Billboard.find(billboard_id)
+    render :json => {billboard_id: billboard_id, score: billboard.score}
   end
 end
