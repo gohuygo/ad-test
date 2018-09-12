@@ -6,7 +6,7 @@ class Billboard < ActiveRecord::Base
   end
 
   def score
-    # return 0 if no votes
-     #upvotes - downvotes
+    return 0 if votes.blank?
+    votes.map(&:direction_value).sum
   end
 end
