@@ -37,7 +37,7 @@ Setup test database
 
 Run tests
 
-  `bundle exec rspec
+  `bundle exec rspec`
 
 
 ## TODOS/Outstanding Issues
