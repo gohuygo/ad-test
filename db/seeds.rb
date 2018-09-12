@@ -1,13 +1,16 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-
 require 'csv'
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'billboard.csv'))
-csv      = CSV.parse(csv_text)
+csv_rows = CSV.parse(csv_text)
+
+csv_rows.each do |row|
+  next if row == csv_rows.first
+
+  billboard_name = row.first
+  image_url      = row.last
+
+  next if Billboard.find_by_name(billboard_name).present?
+
+  Billboard.create(name: billboard_name, image_url: image_url)
+end
+

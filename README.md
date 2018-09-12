@@ -18,6 +18,10 @@ Run migrations
 
   `rake db:migrate`
 
+Create seed data
+
+ `rake db:seed`
+
 ## Starting the App
 
 Run the server
