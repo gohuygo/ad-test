@@ -27,6 +27,7 @@ javascript:
           upButton.removeClass("btn-primary")
           downButton.addClass("btn-primary")
         }
+        $(event.target).parents('.billboard-container').find('.score').html(data.score)
       }
     });
   }
