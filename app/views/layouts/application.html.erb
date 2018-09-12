@@ -11,7 +11,10 @@
 <body>
   <div class="alert ajax-alert alert-primary hidden"></div>
 
-  <%= yield %>
+  <%= render partial: 'layouts/navbar' %>
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 
 </html>

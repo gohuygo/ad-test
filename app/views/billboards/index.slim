@@ -1,11 +1,14 @@
-h2 Billboards#Index
+h2 Let us know what you think about these billboards:
 
 - @billboards.each do |billboard|
   = render partial: 'edit', locals: { billboard: billboard }
 
 javascript:
 
-  function callServer(event, billboardId, direction) {
+  function callServer(event, direction) {
+    let billboardId = $(event.target).parents('.billboard-container').data('billboard-id')
+
+    console.log(billboardId)
     $.ajax({
       url: "/billboards/" + billboardId,
       type: "PUT",
@@ -32,15 +35,11 @@ javascript:
   }
 
   $('.vote-up').click(function (event) {
-    let billboardId = $(event.target.parentElement).data('billboard-id')
-    callServer(event, billboardId, "up")
-
+    callServer(event, "up")
     event.preventDefault()
   });
 
   $('.vote-down').click(function (event) {
-    let billboardId = $(event.target.parentElement).data('billboard-id')
-    callServer(event, billboardId, "down")
-
+    callServer(event, "down")
     event.preventDefault()
   });
