@@ -5,29 +5,39 @@ h2 Billboards#Index
 
 javascript:
 
-  function callServer(billboardId, direction) {
+  function callServer(event, billboardId, direction) {
     $.ajax({
       url: "/billboards/" + billboardId,
       type: "PUT",
       data: {"direction": direction},
       success: function (data) {
-        console.log("SUCCESS!")
-        $(".notice").html('<p>Your vote has been successfully casted.</p>')
-        // TODO: After voting, the user should see a success message.
+        $(".ajax-alert").html('<p>Your vote has been successfully casted.</p>')
+
+        let targetParent = $(event.target.parentElement)
+        let upButton     = targetParent.find(".vote-up")
+        let downButton   = targetParent.find(".vote-down")
+
+        if(direction == "up"){
+          upButton.addClass("btn-primary")
+          downButton.removeClass("btn-primary")
+        }else{
+          upButton.removeClass("btn-primary")
+          downButton.addClass("btn-primary")
+        }
       }
     });
   }
 
   $('.vote-up').click(function (event) {
     let billboardId = $(event.target.parentElement).data('billboard-id')
-    callServer(billboardId, "up")
+    callServer(event, billboardId, "up")
 
     event.preventDefault()
   });
 
   $('.vote-down').click(function (event) {
     let billboardId = $(event.target.parentElement).data('billboard-id')
-    callServer(billboardId, "down")
+    callServer(event, billboardId, "down")
 
     event.preventDefault()
   });
