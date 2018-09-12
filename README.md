@@ -28,3 +28,13 @@ Run the server
 
   `rails s`
 
+
+## Specs
+
+Setup test database
+
+  `rake db:test:prepare`
+
+Run tests
+
+  `bundle exec rspec

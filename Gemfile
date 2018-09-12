@@ -16,4 +16,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :test do
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
+
 end
