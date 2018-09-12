@@ -8,7 +8,6 @@ javascript:
   function callServer(event, direction) {
     let billboardId = $(event.target).parents('.billboard-container').data('billboard-id')
 
-    console.log(billboardId)
     $.ajax({
       url: "/billboards/" + billboardId,
       type: "PUT",
@@ -28,8 +27,6 @@ javascript:
           upButton.removeClass("btn-primary")
           downButton.addClass("btn-primary")
         }
-
-        // TODO: Update score from data
       }
     });
   }
