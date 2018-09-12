@@ -46,3 +46,4 @@ Run tests
 2. Notification shows up at the top of the page but should float and scroll
 3. Refresh/reorder list after voting
 4. Time decay on score
+5. Add content to landing page
