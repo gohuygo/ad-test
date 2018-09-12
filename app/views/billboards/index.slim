@@ -4,19 +4,30 @@ h2 Billboards#Index
   = render partial: 'edit', locals: { billboard: billboard }
 
 javascript:
-  $('.vote-up').click(function (event) {
-    console.log('UPVOTED')
-    let billboardId = $(event.target.parentElement).data('billboard-id')
 
+  function callServer(billboardId, direction) {
     $.ajax({
-        url: "/billboards/" + billboardId,
-        type: "PUT",
-        success: function (data) {
-          console.log("SUCCESS!")
-            // // append data to your page
-            // $("page_element").html(data);
-        }
+      url: "/billboards/" + billboardId,
+      type: "PUT",
+      data: {"direction": direction},
+      success: function (data) {
+        console.log("SUCCESS!")
+          // // append data to your page
+          // $("page_element").html(data);
+      }
     });
+  }
 
-    event.preventDefault(); // Prevent link from following its href
+  $('.vote-up').click(function (event) {
+    let billboardId = $(event.target.parentElement).data('billboard-id')
+    callServer(billboardId, "up")
+
+    event.preventDefault()
+  });
+
+  $('.vote-down').click(function (event) {
+    let billboardId = $(event.target.parentElement).data('billboard-id')
+    callServer(billboardId, "down")
+
+    event.preventDefault()
   });
