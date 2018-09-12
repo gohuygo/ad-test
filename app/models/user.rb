@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   end
 
   def downvoted_billboard?(billboard_id)
-    vote_results[billboard_id].present? && !upvoted_billboard?(billboard_id)
+    vote_results[billboard_id].present? && vote_results[billboard_id] == "down"
   end
 
   private
