@@ -9,16 +9,7 @@
 </head>
 
 <body>
-  <% if notice %>
-    <p class="notice"><%= notice %></p>
-  <% end %>
-
-  <% if alert %>
-    <p class="alert"><%= alert %></p>
-  <% end %>
-
-  <div class="alert ajax-alert alert-primary"></div>
-
+  <div class="alert ajax-alert alert-primary hidden"></div>
 
   <%= yield %>
 </body>

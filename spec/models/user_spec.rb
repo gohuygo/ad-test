@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe 'User' do
+  describe '#upvoted_billboard?' do
+    # TODO
+  end
+
+  describe '#downvoted_billboard?' do
+    # TODO
+  end
+
   describe '#vote_results' do
     let(:user) { FactoryBot.create(:user) }
 

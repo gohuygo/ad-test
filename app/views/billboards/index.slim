@@ -12,6 +12,7 @@ javascript:
       data: {"direction": direction},
       success: function (data) {
         $(".ajax-alert").html('<p>Your vote has been successfully casted.</p>')
+        $(".ajax-alert").removeClass("hidden")
 
         let targetParent = $(event.target.parentElement)
         let upButton     = targetParent.find(".vote-up")
@@ -24,6 +25,8 @@ javascript:
           upButton.removeClass("btn-primary")
           downButton.addClass("btn-primary")
         }
+
+        // TODO: Update score from data
       }
     });
   }

@@ -11,7 +11,6 @@
   button.vote-down.btn class=(current_user.downvoted_billboard?(billboard.id) ? 'btn-primary' : 'btn-secondary')
    | DOWN
 
-
   br
   = image_tag(billboard.image_url, alt: billboard.name, :size => '260x180')
   br
