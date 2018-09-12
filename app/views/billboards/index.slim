@@ -1,3 +1,5 @@
 h2 Billboards#Index
 
-= @billboards.inspect
+- @billboards.each do |billboard|
+  = render partial: 'edit', locals: { billboard: billboard }
+
