@@ -5,9 +5,16 @@
   br
   br
 
-  = link_to 'UP', '#', class: 'vote-up'
+
+  button.vote-up.btn class=(current_user.upvoted_billboard?(billboard.id) ? 'btn-primary' : 'btn-secondary')
+    | UP
   br
-  = link_to 'DOWN', '#', class: 'vote-down'
+  button.vote-down.btn class=(current_user.downvoted_billboard?(billboard.id) ? 'btn-primary' : 'btn-secondary')
+   | DOWN
+
+  / button.vote-up.btn.btn-primary UP
+  / br
+  / button.vote-down.btn.btn-primary DOWN
 
   br
   br

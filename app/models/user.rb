@@ -4,7 +4,17 @@ class User < ActiveRecord::Base
 
   has_many :votes
 
-  def votes_hash
-    @votes_hash ||= votes.each_with_object({}) { |v, h| h[v.billboard_id] = v.direction }
+  def upvoted_billboard?(billboard_id)
+    vote_results[billboard_id].present? && vote_results[billboard_id] == "up"
+  end
+
+  def downvoted_billboard?(billboard_id)
+    vote_results[billboard_id].present? && !upvoted_billboard?(billboard_id)
+  end
+
+  private
+
+  def vote_results
+    @vote_results ||= votes.each_with_object({}) { |v, h| h[v.billboard_id] = v.direction }
   end
 end
