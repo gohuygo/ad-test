@@ -1,16 +1,19 @@
 .billboard-container data-billboard-id="#{billboard.id}"
-  = billboard.score
-  = billboard.name
+  .row
+    .col-sm-3.voting-container
+      button.vote-up.btn class=(current_user.upvoted_billboard?(billboard.id) ? 'btn-primary' : 'btn-secondary')
+        | UP
+      br
+      h2.score
+       = billboard.score
+      br
+      button.vote-down.btn class=(current_user.downvoted_billboard?(billboard.id) ? 'btn-primary' : 'btn-secondary')
+       | DOWN
 
-  br
-  br
-
-  = link_to 'UP', '#', class: 'vote-up'
-  br
-  = link_to 'DOWN', '#', class: 'vote-down'
-
-  br
-  br
-  = image_tag(billboard.image_url, alt: billboard.name, :size => '260x180')
-  br
+    .col-sm-9
+      h4
+        = billboard.name
+      br
+      = image_tag(billboard.image_url, alt: billboard.name, :size => '260x180')
+      br
 

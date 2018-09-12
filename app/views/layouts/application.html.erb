@@ -9,10 +9,12 @@
 </head>
 
 <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <div class="alert ajax-alert alert-primary hidden"></div>
 
-  <%= yield %>
+  <%= render partial: 'layouts/navbar' %>
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 
 </html>

@@ -1,7 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe 'User' do
-  describe '#votes_hash' do
+  describe '#upvoted_billboard?' do
+    # TODO
+  end
+
+  describe '#downvoted_billboard?' do
+    # TODO
+  end
+
+  describe '#vote_results' do
     let(:user) { FactoryBot.create(:user) }
 
     let!(:vote_1) do
@@ -23,7 +31,7 @@ RSpec.describe 'User' do
     end
 
     it 'returns a hash with vote results' do
-      expect(user.votes_hash).to eq ({ 1=>'up', 2=>'down' })
+      expect(user.send(:vote_results)).to eq ({ 1=>'up', 2=>'down' })
     end
   end
 end
