@@ -29,7 +29,7 @@ RSpec.describe 'Billboard' do
       let!(:vote_2) do
         FactoryBot.create(
           :vote,
-          user_id: 1,
+          user_id: 2,
           billboard_id: billboard.id,
           direction: 'up',
         )
@@ -38,7 +38,7 @@ RSpec.describe 'Billboard' do
       let!(:vote_3) do
         FactoryBot.create(
           :vote,
-          user_id: 1,
+          user_id: 3,
           billboard_id: billboard.id,
           direction: 'down',
         )
